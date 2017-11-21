@@ -27,10 +27,11 @@ app.set('view engine', 'ejs');
 //Routes
 const appRoutes  = require('./routes/index'); //link up routes file
 app.get('/', appRoutes.returnHomePage);
-app.post('/user', appRoutes.createNewUser);
 app.get('/users', appRoutes.getAllUsers);
 app.get('/artworks', appRoutes.getAllArtworks);
 app.get('/user/:userid/artworks', appRoutes.getMyArtworks);
+
+app.post('/user', appRoutes.createNewUser);
 app.post('/user/:userid/artwork', appRoutes.createNewArtwork);
 
 
