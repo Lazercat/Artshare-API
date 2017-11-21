@@ -19,6 +19,6 @@ mongoose.connection.openUri(process.env.MONGODB_URI || process.env.DB_CONN, {}, 
 
 //EXPORT ALL MODELS HERE
 module.exports = {
-  ApiUser: userModels.ApiUserAccount,
+  User: userModels.User,
   Artwork: artworkModels.Artwork
 };

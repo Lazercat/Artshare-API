@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ApiUserAccountSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   id: String,
   access_token: String,
   firstName: String,
@@ -8,12 +8,12 @@ const ApiUserAccountSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   profilePhoto: String,
   createdOn: { type: Date, default: Date.now  },
-  existAccountId: { type: mongoose.Schema.Types.ObjectId, ref: 'ExistUserAccount', default: null},
+  artworkID: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null}],
 });
 
-const ApiUserAccount = mongoose.model('ApiUserAccount', ApiUserAccountSchema); // eventual main user library
+const User = mongoose.model('User', UserSchema);
 
 module.exports = {
-  ApiUserAccount: ApiUserAccount,
+  User: User,
 }
 

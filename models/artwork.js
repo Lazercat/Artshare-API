@@ -7,7 +7,7 @@ const ArtworkSchema = new mongoose.Schema({
   width: String,
   height: String,
   createdOn: { type: Date, default: Date.now  },
-  userID: { type: mongoose.Schema.Types.ObjectId, ref: 'ApiUserAccount'},
+  userID: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 });
 
 const Artwork = mongoose.model('Artwork', ArtworkSchema);
