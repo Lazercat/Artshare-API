@@ -68,17 +68,16 @@ function createNewUser(req, res) {
 
 function createNewArtwork(req, res) {
    const newArt = db.Artwork({
-      title: String,
-      description: String,
-      cloudinaryURL: String,
-      width: String,
-      height: String,
-      createdOn: { type: Date, default: Date.now  },
-      userID: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+      title: req.body.title,
+      description: req.body.description,
+      cloudinaryURL: req.body.cloudinaryURL,
+      width: req.body.width,
+      height: req.body.height,
+      userID: req.params.userid
     });
     newArt.save(function(err,data) {
       if(err) {
-        res.status(500).send('internal server error for new user.');
+        res.status(500).send('internal server error for newArt.' + err);
       } else {
         res.status(201).json(data);
       }
