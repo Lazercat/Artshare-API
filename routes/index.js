@@ -14,7 +14,7 @@ function returnHomePage(req, res) {
 function getAllUsers(req, res) {
    db.User.find({}, function(err, data) {
     if(err) {
-      console.log('Error retrieving locations');
+      console.log('Error retrieving all users');
       res.status(500).send('Internal Server Error');
     } else {
       res.status(201).json(data);;
@@ -25,7 +25,7 @@ function getAllUsers(req, res) {
 function getAllArtworks(req, res){
    db.Artwork.find({}, function(err, data) {
     if(err) {
-      console.log('Error retrieving locations');
+      console.log('Error retrieving artworks');
       res.status(500).send('Internal Server Error');
     } else {
       res.status(201).json(data);
@@ -34,16 +34,15 @@ function getAllArtworks(req, res){
 }
 
 function getMyArtworks(req, res) {
-   db.Artwork.find({artistId: req.params.userid}, function(err, data) {
+   db.Artwork.find({userID: req.params.userid}, function(err, data) {
     if(err) {
-      console.log('Error retrieving locations');
+      console.log('Error retrieving  user\'s artworks');
       res.status(500).send('Internal Server Error');
     } else {
       res.status(201).json(data);
     }
   });
 }
-
 
 function createNewUser(req, res) {
   const newUser = db.User({
@@ -55,7 +54,6 @@ function createNewUser(req, res) {
     profilePhoto: req.body.profilePhoto,
     locations: req.body.locations
   });
-
   newUser.save(function(err,data) {
     if(err) {
       res.status(500).send('internal server error for new user.');
@@ -64,7 +62,6 @@ function createNewUser(req, res) {
     }
   });
 }
-
 
 function createNewArtwork(req, res) {
    const newArt = db.Artwork({
