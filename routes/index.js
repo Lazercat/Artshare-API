@@ -66,6 +66,7 @@ function createNewUser(req, res) {
 function createNewArtwork(req, res) {
    const newArt = db.Artwork({
       title: req.body.title,
+      artist: req.body.artist,
       description: req.body.description,
       cloudinaryURL: req.body.cloudinaryURL,
       width: req.body.width,
