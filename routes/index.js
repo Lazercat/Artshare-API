@@ -33,6 +33,18 @@ function getAllArtworks(req, res){
   });
 }
 
+
+function getArtwork(req, res) {
+   db.Artwork.find({_id: req.params.artid}, function(err, data) {
+    if(err) {
+      console.log('Error retrieving artwork');
+      res.status(500).send('Internal Server Error getting artwork' + req.params.artid);
+    } else {
+      res.status(201).json(data);
+    }
+  });
+}
+
 function getMyArtworks(req, res) {
    db.Artwork.find({userID: req.params.userid}, function(err, data) {
     if(err) {

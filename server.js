@@ -18,13 +18,10 @@ app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', process.env.REACT_HOST_URL);
-
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH');
-
     // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', false);
@@ -50,6 +47,7 @@ const appRoutes  = require('./routes/index'); //link up routes file
 app.get('/', appRoutes.returnHomePage);
 app.get('/users', appRoutes.getAllUsers);
 app.get('/artworks', appRoutes.getAllArtworks);
+app.get('/artwork/:artid', appRoutes.getArtwork);
 app.get('/user/:userid/artworks', appRoutes.getMyArtworks);
 
 app.post('/user', appRoutes.createNewUser);
