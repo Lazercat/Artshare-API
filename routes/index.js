@@ -104,5 +104,6 @@ module.exports = {
   getMyArtworks: getMyArtworks,
   createNewArtwork: createNewArtwork,
   createNewUser: createNewUser,
+  getArtwork: getArtwork,
 }
 
