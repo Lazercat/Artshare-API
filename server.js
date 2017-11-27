@@ -17,9 +17,9 @@ const port = process.env.PORT || 3001;
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', process.env.REACT_HOST_URL);
+    res.setHeader('Access-Control-Allow-Origin', process.env.REACT_HOST_URL || process.env.REACT_TEST_URL);
     // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTION, PUT, PATCH');
     // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     // Set to true if you need the website to include cookies in the requests sent
