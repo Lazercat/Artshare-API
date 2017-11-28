@@ -79,6 +79,7 @@ function createNewArtwork(req, res) {
    const newArt = db.Artwork({
       title: req.body.title,
       artist: req.body.artist,
+      tags: req.body.tags,
       description: req.body.description,
       cloudinaryURL: req.body.cloudinaryURL,
       width: req.body.width,
