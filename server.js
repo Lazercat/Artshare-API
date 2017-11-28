@@ -85,7 +85,7 @@ app.get('/artwork/:artid', appRoutes.getArtwork);
 app.get('/user/:userid/artworks', appRoutes.getMyArtworks);
 
 app.post('/user', appRoutes.createNewUser);
-app.post('/user/:userid/artwork', appRoutes.createNewArtwork);
+app.post('/artwork', appRoutes.createNewArtwork);
 
 //File Uploads
 app.post('/upload',multer(multerConfig).single('photo'),function(req,res){
