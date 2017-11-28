@@ -9,6 +9,7 @@ const ArtworkSchema = new mongoose.Schema({
   tags: String,
   createdOn: { type: Date, default: Date.now  },
   artist: String,
+  firebaseId: String,
   userID: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 });
 
