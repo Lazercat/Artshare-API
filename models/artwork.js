@@ -10,6 +10,7 @@ const ArtworkSchema = new mongoose.Schema({
   createdOn: { type: Date, default: Date.now  },
   artist: String,
   firebaseId: String,
+  firebaseName: String,
   userID: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 });
 
