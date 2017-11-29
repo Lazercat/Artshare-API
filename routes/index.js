@@ -85,8 +85,8 @@ function createNewArtwork(req, res) {
       width: req.body.width,
       height: req.body.height,
       userID: req.params.userid,
-      firebaseId: req.params.firebaseId,
-      firebaseName: req.params.artist,
+      firebaseId: req.body.firebaseId,
+      firebaseName: req.body.artist,
     });
     newArt.save(function(err,data) {
       if(err) {
