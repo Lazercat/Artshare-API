@@ -84,7 +84,7 @@ function createNewArtwork(req, res) {
       cloudinaryURL: req.body.cloudinaryURL,
       width: req.body.width,
       height: req.body.height,
-      userID: req.params.userid,
+      facebookId: req.body.facebookId,
       firebaseId: req.body.firebaseId,
       firebaseName: req.body.artist,
     });
