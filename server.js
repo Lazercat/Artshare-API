@@ -82,7 +82,7 @@ app.get('/', appRoutes.returnHomePage);
 app.get('/users', appRoutes.getAllUsers);
 app.get('/artworks', appRoutes.getAllArtworks);
 app.get('/artwork/:artid', appRoutes.getArtwork);
-app.get('/artwork/:userid', appRoutes.getMyArtworks);
+app.get('/artworks/:userid', appRoutes.getMyArtworks);
 
 app.post('/user', appRoutes.createNewUser);
 app.post('/artwork', appRoutes.createNewArtwork);
