@@ -46,7 +46,7 @@ function getArtwork(req, res) {
 }
 
 function getMyArtworks(req, res) {
-   db.Artwork.find({userID: req.params.userid}, function(err, data) {
+   db.Artwork.find({firebaseId: req.params.userid}, function(err, data) {
     if(err) {
       console.log('Error retrieving  user\'s artworks');
       res.status(500).send('Internal Server Error');
@@ -93,6 +93,7 @@ function createNewArtwork(req, res) {
         res.status(500).send('internal server error for newArt.' + err);
       } else {
         res.status(201).json(data);
+        console.log(data);
       }
     });
 }
