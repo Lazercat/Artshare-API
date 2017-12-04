@@ -57,11 +57,14 @@ function getMyArtworks(req, res) {
 }
 
 function getMyTagArtworks (req,res){
-   db.Artwork.find({tags: req.params.tagid}, function(err, data) {
+   console.log('searching with '+req.params.tagid)
+
+   db.Artwork.find({  tags: 'cool, tug, war, oil, paint, abstract'} , function(err, data) {
     if(err) {
       console.log('Error retrieving  tagged\'s artwork for '+req.params.tagid);
       res.status(500).send('Internal Server Error');
     } else {
+      console.log('i got this..' +data);
       res.status(201).json(data);
     }
   });

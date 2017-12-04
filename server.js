@@ -16,8 +16,14 @@ const port = process.env.PORT || 3001;
 
 // Add headers
 app.use(function (req, res, next) {
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', process.env.REACT_HOST_URL || process.env.REACT_TEST_URL);
+
+
+  var allowedOrigins = [ 'https://artshare-react.herokuapp.com' , 'http://localhost:3000' ];
+  var origin = req.headers.origin;
+  if(allowedOrigins.indexOf(origin) > -1){
+       res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTION, PUT, PATCH');
     // Request headers you wish to allow

@@ -6,7 +6,7 @@ const ArtworkSchema = new mongoose.Schema({
   cloudinaryURL: String,
   width: String,
   height: String,
-  tags: String,
+  tags: [String],
   createdOn: { type: Date, default: Date.now  },
   artist: String,
   firebaseId: String,
