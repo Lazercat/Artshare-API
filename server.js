@@ -16,7 +16,6 @@ const port = process.env.PORT || 3001;
 
 // Add headers
 app.use(function (req, res, next) {
-
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', process.env.REACT_HOST_URL || process.env.REACT_TEST_URL);
     // Request methods you wish to allow
@@ -83,6 +82,7 @@ app.get('/users', appRoutes.getAllUsers);
 app.get('/artworks', appRoutes.getAllArtworks);
 app.get('/artwork/:artid', appRoutes.getArtwork);
 app.get('/artworks/:userid', appRoutes.getMyArtworks);
+app.get('/artworks/tags/:tagid', appRoutes.getMyTagArtworks);
 
 app.post('/user', appRoutes.createNewUser);
 app.post('/artwork', appRoutes.createNewArtwork);

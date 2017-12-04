@@ -56,6 +56,17 @@ function getMyArtworks(req, res) {
   });
 }
 
+function getMyTagArtworks (req,res){
+   db.Artwork.find({tags: req.params.tagid}, function(err, data) {
+    if(err) {
+      console.log('Error retrieving  tagged\'s artwork for '+req.params.tagid);
+      res.status(500).send('Internal Server Error');
+    } else {
+      res.status(201).json(data);
+    }
+  });
+}
+
 function createNewUser(req, res) {
   const newUser = db.User({
     id: req.body.id,
@@ -109,5 +120,6 @@ module.exports = {
   createNewArtwork: createNewArtwork,
   createNewUser: createNewUser,
   getArtwork: getArtwork,
+  getMyTagArtworks: getMyTagArtworks,
 }
 
