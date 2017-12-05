@@ -6,9 +6,12 @@ const UserSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   email: { type: String, unique: true },
+  facebookId: String,
+  firebaseId: String,
+  access_token: String,
   profilePhoto: String,
   createdOn: { type: Date, default: Date.now  },
-  artworkID: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null}],
+  artworks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Artwork', default: null}],
 });
 
 const User = mongoose.model('User', UserSchema);
