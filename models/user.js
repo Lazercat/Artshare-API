@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   displayName: String,
-  email: { type: String, unique: true },
+  email: { type: String, unique: false },
   facebookId: String,
   firebaseId: String,
   access_token: String,
