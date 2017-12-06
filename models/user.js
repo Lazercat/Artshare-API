@@ -5,6 +5,7 @@ const UserSchema = new mongoose.Schema({
   access_token: String,
   firstName: String,
   lastName: String,
+  displayName: String,
   email: { type: String, unique: true },
   facebookId: String,
   firebaseId: String,
