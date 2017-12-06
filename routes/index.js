@@ -34,6 +34,18 @@ function getThisUser(req, res) {
   });
 }
 
+function getThisFirebaseUser(req, res) {
+   db.User.find({ firebaseId: req.params.firebsid}, function(err, data) {
+    if(err) {
+      console.log('Error retrieving all users');
+      res.status(500).send('Internal Server Error');
+    } else {
+      console.log('found user!')
+      res.status(201).json(data);;
+    }
+  });
+}
+
 function createNewUser(req, res) {
   const newUser = db.User({
     id: req.body.id,
@@ -138,6 +150,7 @@ module.exports = {
   returnHomePage: returnHomePage,
   getAllUsers: getAllUsers,
   getThisUser: getThisUser,
+  getThisFirebaseUser: getThisFirebaseUser,
   getAllArtworks: getAllArtworks,
   getMyArtworks: getMyArtworks,
   createNewArtwork: createNewArtwork,
