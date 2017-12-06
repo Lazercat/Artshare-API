@@ -84,6 +84,7 @@ app.set('view engine', 'ejs');
 const appRoutes  = require('./routes/index'); //link up routes file
 app.get('/', appRoutes.returnHomePage);
 app.get('/users', appRoutes.getAllUsers);
+app.get('/user/:facebkid', appRoutes.getThisUser);
 app.get('/artworks', appRoutes.getAllArtworks);
 app.get('/artwork/:artid', appRoutes.getArtwork);
 app.get('/artworks/:userid', appRoutes.getMyArtworks);

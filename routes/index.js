@@ -22,6 +22,18 @@ function getAllUsers(req, res) {
   });
 }
 
+function getThisUser(req, res) {
+   db.User.find({ facebookId: req.params.facebkid}, function(err, data) {
+    if(err) {
+      console.log('Error retrieving all users');
+      res.status(500).send('Internal Server Error');
+    } else {
+      console.log('found user!')
+      res.status(201).json(data);;
+    }
+  });
+}
+
 function getAllArtworks(req, res){
    db.Artwork.find({}, function(err, data) {
     if(err) {
@@ -118,6 +130,7 @@ function createNewArtwork(req, res) {
 module.exports = {
   returnHomePage: returnHomePage,
   getAllUsers: getAllUsers,
+  getThisUser: getThisUser,
   getAllArtworks: getAllArtworks,
   getMyArtworks: getMyArtworks,
   createNewArtwork: createNewArtwork,
