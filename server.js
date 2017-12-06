@@ -85,7 +85,7 @@ const appRoutes  = require('./routes/index'); //link up routes file
 app.get('/', appRoutes.returnHomePage);
 app.get('/users', appRoutes.getAllUsers);
 app.get('/user/:facebkid', appRoutes.getThisUser);
-app.get('/user/:firebsid', appRoutes.getThisFirebaseUser);
+app.get('/user/fire/:firebsid', appRoutes.getThisFirebaseUser);
 app.get('/artworks', appRoutes.getAllArtworks);
 app.get('/artwork/:artid', appRoutes.getArtwork);
 app.get('/artworks/:userid', appRoutes.getMyArtworks);

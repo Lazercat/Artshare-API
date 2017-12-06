@@ -37,7 +37,7 @@ function getThisUser(req, res) {
 function getThisFirebaseUser(req, res) {
    db.User.find({ firebaseId: req.params.firebsid}, function(err, data) {
     if(err) {
-      console.log('Error retrieving all users');
+      console.log('Error retrieving firebase user');
       res.status(500).send('Internal Server Error');
     } else {
       console.log('found user!')
