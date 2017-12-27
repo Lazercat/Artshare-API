@@ -19,9 +19,7 @@ app.use(function (req, res, next) {
 
   var allowedOrigins = [ 'https://artshare-react.herokuapp.com', 'http://artshare-react.herokuapp.com', 'http://localhost:3000', 'http://localhost:3001' ];
   var origin = req.headers.origin;
-  if(allowedOrigins.indexOf(origin) > -1){
-       res.setHeader('Access-Control-Allow-Origin', origin);
-  }
+  if(allowedOrigins.indexOf(origin) > -1){res.setHeader('Access-Control-Allow-Origin', origin);}
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTION, PUT, PATCH');
     // Request headers you wish to allow
@@ -86,6 +84,7 @@ app.get('/users', appRoutes.getAllUsers);
 app.get('/user/:facebkid', appRoutes.getThisUser);
 app.get('/user/fire/:firebsid', appRoutes.getThisFirebaseUser);
 app.get('/artworks', appRoutes.getAllArtworks);
+app.get('/artworks/:page', appRoutes.getAllArtworkPages);
 app.get('/artwork/:artid', appRoutes.getArtwork);
 app.get('/artworks/:userid', appRoutes.getMyArtworks);
 app.get('/artworks/tags/:tagid', appRoutes.getMyTagArtworks);

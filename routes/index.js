@@ -4,7 +4,7 @@
 const db = require('../models');
 const user = require('../models/user');
 const mongoose = require('mongoose');
-
+const pagination = require('mongoose-pagination');
 
 function returnHomePage(req, res) {
  res.render('home');
@@ -21,6 +21,8 @@ function getAllUsers(req, res) {
     }
   });
 }
+
+
 
 function getThisUser(req, res) {
    db.User.find({ facebookId: req.params.facebkid}, function(err, data) {
@@ -67,10 +69,7 @@ function createNewUser(req, res) {
   });
 }
 
-
-
-
-
+// WANT TO PAGINATE THIS :)
 function getAllArtworks(req, res){
    db.Artwork.find({}, function(err, data) {
     if(err) {
@@ -80,6 +79,19 @@ function getAllArtworks(req, res){
       res.status(201).json(data);
     }
   });
+}
+
+
+//PAGINATION!!
+function getAllArtworkPages(req, res){
+   db.Artwork.find({}, function(err, data) {
+    if(err) {
+      console.log('Error retrieving artworks');
+      res.status(500).send('Internal Server Error');
+    } else {
+      res.status(201).json(data);
+    }
+  }).skip(parseInt(req.params.page)).limit(10);
 }
 
 
@@ -152,6 +164,7 @@ module.exports = {
   getThisUser: getThisUser,
   getThisFirebaseUser: getThisFirebaseUser,
   getAllArtworks: getAllArtworks,
+  getAllArtworkPages: getAllArtworkPages,
   getMyArtworks: getMyArtworks,
   createNewArtwork: createNewArtwork,
   createNewUser: createNewUser,
